@@ -8,7 +8,7 @@ clean:
 	ssh-keygen -f ~/.ssh/known_hosts -R "[localhost]:2222"
 
 connect:
-	ssh -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null root@localhost
+	ssh -X -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null root@localhost
 
 run:
 	docker run --name devenv \
