@@ -19,11 +19,12 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 # Locale
 RUN apt-get install -y locales
-RUN locale-gen en_CA.utf8
-ENV LANG en_CA.utf8
-ENV LANGUAGE en_CA:en
-ENV LC_ALL en_CA.utf8
-RUN update-locale LANG=en_CA.utf8 
+RUN dpkg-reconfigure locales
+RUN locale-gen C.UTF-8
+ENV LANG C.UTF-8 
+ENV LANGUAGE C.UTF-8 
+ENV LC_ALL C.UTF-8
+RUN update-locale LANG=C.UTF-8 
 
 # install dotfiles
 RUN git clone https://github.com/davidwesst/dotfiles /root/dotfiles/
