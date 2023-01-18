@@ -1,0 +1,9 @@
+services:
+    workspace:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - /root/workspace
+        ports:
+            - "8080:8080"
