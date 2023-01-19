@@ -1,9 +1,17 @@
+version: "3"
 services:
     workspace:
         build:
             context: ./
             dockerfile: Dockerfile
+            args:
+                SSH_PASSWORD: password
         volumes:
-            - /root/workspace
+            - code-workspace:/root/workspace
         ports:
-            - "8080:8080"
+            - "8080:80"
+            - "8443:443"
+            - "2222:22"
+volumes:
+    code-workspace:
+        name: "code-workspace"
